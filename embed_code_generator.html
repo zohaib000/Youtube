@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Embed Code Generator</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            padding: 50px;
+        }
+
+        .container,iframe{
+            width: 60vw;
+        }
+
+        h1{
+            font-family: calibri;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning mb-4">
+        <a class="navbar-brand" href="MultiBrowser.html">FavTools</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="MultiBrowser.html">Multi View Browser<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="open_links.html">Open Browser Tabs</a>
+            <a class="nav-item nav-link" href="embed_code_generator.html">Embed Code generator</a>
+          </div>
+        </div>
+      </nav>
+
+    <form class="container">
+        <h1>Embed Code Generator</h1>
+        <div class="form-group mt-4">
+            <input type="url" name="url" id="url" placeholder="Enter your url" width="100"
+            class="form-control form-control-lg" required >
+        </div>
+        <div class="form-group mt-4">
+            <input type="number" name="height" id="height" placeholder="Enter height for iframe" width="100"
+            class="form-control form-control-lg" required >
+        </div>
+        <div class="form-group mt-4">
+            <input type="number" name="width" id="width" placeholder="Enter width for iframe" width="100"
+            class="form-control form-control-lg" required >
+        </div>
+        <button id="start" class="btn btn-lg btn-primary">create code</button>    
+
+    </form>
+
+
+   
+
+
+    <!-- cdns -->
+    <script src="js/jquery.js"></script>              
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery2.js"></script>
+    <!-- end  -->
+    <script>
+    $('#start').click(function(){
+        event.preventDefault()
+        url=$('#url').val()
+        height=$('#height').val()
+        width=$('#width').val()
+
+        code=` <iframe src="${url}" frameborder="0" height="${height}" width="${width}"></iframe>`;
+        alert(code);
+    })
+    </script>
+</body>
+</html>
+
