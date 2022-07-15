@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Multi Task Browser</title>
+    <title>FavTools</title>
 
     <style>
         body {
@@ -18,83 +18,47 @@
         .container,iframe{
             width: 60vw;
         }
+
+        h1{
+            font-family: calibri;
+        }
     </style>
 </head>
 
 <body>
-
-    <form class="container">
-        <div class="form-group">
-            <input type="number" name="tabs" id="tabs" placeholder="Enter number of Tabs" width="100"
-            class="form-control form-control-lg" required >
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning mb-4">
+        <a class="navbar-brand" href="MultiBrowser.html">FavTools</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="MultiBrowser.html">Multi View Browser<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="open_links.html">Open Browser Tabs</a>
+            <a class="nav-item nav-link" href="embed_code_generator.html">Embed Code generator</a>
+          </div>
         </div>
-        <div class="form-group">
-            <input type="url" name="url" id="url" placeholder="Enter url" width="100"
-            class="form-control form-control-lg" required>
-            <span class="form-text url-error text-danger font-weight-bold"></span>
-        </div>
+      </nav>
 
-        <button id="start" class="btn btn-lg btn-primary">Add</button>
-        <button id="clear" class="btn btn-lg btn-danger">Clear</button>
-        <button id="refresh" class="btn btn-lg btn-danger">Refresh</button>
+      <div style="font-size:4vw;" class="bg-light text-dark container mt-5">
+            <a href="MultiBrowser.html" class="d-inline">Multiview Browser</a>
+      </div>
+      <div style="font-size:4vw;" class="bg-light text-dark container mt-5">
+            <a href="open_links.html" class="d-inline">Open Browser Tabs</a>
+      </div>
+      <div style="font-size:4vw;" class="bg-light text-dark container mt-5">
+            <a href="embed_code_generator.html" class="d-inline">Embed Code Generator</a>
+      </div>
 
-    </form>
-
-      <div id="output" class="row m-3">
-       
-       </div>
 
 
     <!-- cdns -->
+    <script src="js/jquery.js"></script>              
+    <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.js"></script>
     <script src="js/jquery2.js"></script>
     <!-- end  -->
-    <script>
-        $('#url').on('input',function(){
-                $('.url-error').text('');
-                $('#url').css('border','none'); 
-        })
-
-        $('#refresh').click(function () {
-            event.preventDefault();
-            iframes = $('#output').html();
-            $('#output').html('');
-            $('#output').html(iframes);
-
-        })
-
-        document.getElementById('start').addEventListener('click', function (event) {
-            event.preventDefault();
-            if ($('#url').val().startsWith('http')) {
-                tabs = document.getElementById('tabs').value;
-                url = document.getElementById('url').value;
-                out = document.getElementById('output');
-                if (url.includes('youtu')) {
-                    id = url.split('/')
-                    url = `https://youtube.com/embed/${id[3]}`
-                }
-                for (var i = 0; i < tabs; i++) {
-                    iframe = document.createElement('iframe');
-                    iframe.height = '300';
-                    iframe.setAttribute('class', 'col-md-4 col-xl-3');
-                    iframe.src = url;
-                    out.append(iframe);
-                }
-            }else{
-                $('.url-error').text('Invalid URL')
-                $('#url').css({
-                    'border':'3px red solid',
-                })
-            }
-        })
-
-        $('#clear').click(function () {
-            event.preventDefault();
-            $('#output').html('');
-        })
-
-    </script>
+    
 </body>
 </html>
- 
+
